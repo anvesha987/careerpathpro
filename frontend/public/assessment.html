@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Assessment</title>
+    <link rel="stylesheet" href="../src/styles/components/Assessment.css">
+</head>
+<body>
+    <div class="assessment-container">
+        <h1>Career Skills Assessment</h1>
+        <form id="assessmentForm">
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1. How would you rate your technical skills?</p>
+                <div class="options">
+                    <label><input type="radio" name="techSkills" value="1"> Beginner</label>
+                    <label><input type="radio" name="techSkills" value="2"> Intermediate</label>
+                    <label><input type="radio" name="techSkills" value="3"> Advanced</label>
+                </div>
+            </div>
+            
+            <!-- Add more questions as needed -->
+            
+            <button type="submit" class="btn">Submit Assessment</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('assessmentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Get all assessment answers
+            const formData = {
+                techSkills: document.querySelector('input[name="techSkills"]:checked')?.value,
+                // Add other questions here
+            };
+
+            try {
+                const response = await fetch('http://localhost:5000/api/assessment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (!response.ok) throw new Error('Assessment submission failed');
+                
+                // Redirect to dashboard
+                window.location.href = 'dashboard.html';
+                
+            } catch (error) {
+                alert(`Error: ${error.message}`);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Dashboard</title>
+    <link rel="stylesheet" href="../src/styles/components/Dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Welcome, <span id="userName"></span></h1>
+            <nav>
+                <a href="#" id="logout">Logout</a>
+            </nav>
+        </header>
+        
+        <div class="dashboard-content">
+            <section class="career-recommendations">
+                <h2>Your Career Matches</h2>
+                <div id="careerResults"></div>
+            </section>
+            
+            <section class="progress-tracker">
+                <h2>Your Progress</h2>
+                <div class="progress-bar"></div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Check authentication
+        if (!localStorage.getItem('authToken')) {
+            window.location.href = 'login.html';
+        }
+
+        // Load user data
+        const user = JSON.parse(localStorage.getItem('user'));
+        document.getElementById('userName').textContent = user.name;
+        
+        // Fetch career recommendations
+        async function loadRecommendations() {
+            try {
+                const response = await fetch('http://localhost:5000/api/dashboard', {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                    }
+                });
+                
+                const data = await response.json();
+                displayResults(data.recommendations);
+            } catch (error) {
+                console.error('Failed to load recommendations:', error);
+            }
+        }
+        
+        function displayResults(recommendations) {
+            const container = document.getElementById('careerResults');
+            container.innerHTML = recommendations.map(career => `
+                <div class="career-card">
+                    <h3>${career.title}</h3>
+                    <p>Match Score: ${career.matchScore}%</p>
+                    <p>${career.description}</p>
+                </div>
+            `).join('');
+        }
+        
+        // Logout handler
+        document.getElementById('logout').addEventListener('click', () => {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        });
+        
+        // Initial load
+        loadRecommendations();
+    </script>
+</body>
+</html>
