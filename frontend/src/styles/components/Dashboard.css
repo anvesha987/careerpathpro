@@ -1,0 +1,327 @@
+/* Dashboard Container */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+    background-color: #f5f7fb;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    background-color: #ffffff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    padding: 2rem 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+  
+  .sidebar-header {
+    padding: 0 1.5rem 2rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1.5rem;
+  }
+  
+  .sidebar-header h2 {
+    color: #4361ee;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .sidebar-header p {
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+  
+  .sidebar-menu {
+    padding: 0 1rem;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    color: #495057;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  
+  .menu-item:hover {
+    background-color: rgba(67, 97, 238, 0.1);
+    color: #4361ee;
+  }
+  
+  .menu-item.active {
+    background-color: rgba(67, 97, 238, 0.1);
+    color: #4361ee;
+    font-weight: 500;
+  }
+  
+  .menu-item i {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+  }
+  
+  /* Main Content Area */
+  .main-content {
+    padding: 2rem;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2rem;
+    color: #212529;
+  }
+  
+  .user-profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    object-fit: cover;
+    border: 2px solid #4361ee;
+  }
+  
+  .user-profile span {
+    font-weight: 500;
+  }
+  
+  /* Dashboard Grid Layout */
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Card Styles */
+  .card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .card-header h3 {
+    font-size: 1.25rem;
+    color: #212529;
+  }
+  
+  .card-header i {
+    color: #4361ee;
+    font-size: 1.5rem;
+  }
+  
+  /* Profile Card Specific Styles */
+  .profile-card .profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-card .profile-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    object-fit: cover;
+    border: 3px solid #4361ee;
+  }
+  
+  .profile-card .profile-details h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+  }
+  
+  .profile-card .profile-details p {
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .profile-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .stat-item {
+    padding: 1rem;
+    background-color: rgba(67, 97, 238, 0.05);
+    border-radius: 8px;
+  }
+  
+  .stat-item h4 {
+    font-size: 1.5rem;
+    color: #4361ee;
+    margin-bottom: 0.25rem;
+  }
+  
+  .stat-item p {
+    font-size: 0.8rem;
+    color: #6c757d;
+  }
+  
+  /* Career Recommendations Styles */
+  .career-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .career-item:last-child {
+    border-bottom: none;
+  }
+  
+  .career-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(67, 97, 238, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: #4361ee;
+    font-size: 1.2rem;
+  }
+  
+  .career-details h4 {
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+  }
+  
+  .career-details p {
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+  
+  .match-score {
+    margin-left: auto;
+    background-color: #4cc9f0;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  /* Skill Gap Analysis Styles */
+  .skill-item {
+    margin-bottom: 1.25rem;
+  }
+  
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  .skill-name {
+    font-weight: 500;
+  }
+  
+  .skill-level {
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+  
+  .progress-bar {
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #4361ee;
+    border-radius: 4px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .dashboard-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .user-profile {
+      margin-top: 1rem;
+    }
+    
+    .profile-card .profile-info {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .profile-card .profile-info img {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+    
+    .profile-stats {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .card {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  .card:nth-child(1) { animation-delay: 0.1s; }
+  .card:nth-child(2) { animation-delay: 0.2s; }
+  .card:nth-child(3) { animation-delay: 0.3s; }
+  .card:nth-child(4) { animation-delay: 0.4s; }
